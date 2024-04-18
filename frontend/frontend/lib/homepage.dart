@@ -6,9 +6,9 @@ import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_slidable/flutter_slidable.dart';
 class HomePage extends StatefulWidget{
-  final token;
+  
 
-  const HomePage({@required this.token,Key? key}):super(key:key);
+  const HomePage({Key? key}):super(key:key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -82,25 +82,27 @@ class _HomePageState extends State<HomePage> {
             elevation: 3, 
             content:SingleChildScrollView(
               
-              child: ListBody( 
-                children: [
-                      TextField(
-                        controller:titlecontroller,
-                        decoration: const InputDecoration(
-                        hintText: "Enter Task Name",
-                        
+              child: Card(
+                child: ListBody( 
+                  children: [
+                        TextField(
+                          controller:titlecontroller,
+                          decoration: const InputDecoration(
+                          hintText: "Enter Task Name",
+                          
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 10,),
-                      TextField(
-                        controller:desccontroller,
-                        decoration: const InputDecoration(
-                        hintText: "Enter Task ",
-                        
+                        const SizedBox(height: 10,),
+                        TextField(
+                          controller:desccontroller,
+                          decoration: const InputDecoration(
+                          hintText: "Enter Task ",
+                          
+                          ),
                         ),
-                      ),
-                      
-                ],),
+                        
+                  ],),
+              ),
             ),
               actions: [
                   ElevatedButton(onPressed: (){
@@ -141,14 +143,18 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],),
           
-            child:ListTile(
-            leading:const Icon(Icons.task),
-            title:Text(items![index]['title']),
-            subtitle: Text(items![index]['desc']),
-            trailing: IconButton(
-              onPressed: (){},
-              icon: const Icon(Icons.arrow_back),),
-          ),
+            child:Card(
+              color: Colors.white,
+              shadowColor: Colors.grey,
+              child: ListTile(
+              leading:const Icon(Icons.task),
+              title:Text(items![index]['title']),
+              subtitle: Text(items![index]['desc']),
+              trailing: IconButton(
+                onPressed: (){},
+                icon: const Icon(Icons.arrow_back),),
+                        ),
+            ),
           );
           
         } ,
