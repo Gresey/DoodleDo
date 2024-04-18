@@ -2,8 +2,8 @@ const Todoservices=require("../services/todoservice");
 
 exports.createTodotask=async (req,res,next)=>{
     try{
-    const {userid,title,desc}=req.body;
-    const result=await Todoservices.createTodo(userid,title,desc);
+    const {title,desc}=req.body;
+    const result=await Todoservices.createTodo(title,desc);
     res.status(200).json({
         
         "message":"created todotask"

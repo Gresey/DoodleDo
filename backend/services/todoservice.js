@@ -1,9 +1,9 @@
 const todomodel =require("../models/todomodel");
 
 class Todoservices{
-    static async createTodo(userid,title,desc){
+    static async createTodo(title,desc){
        try{
-        const createtodo=new todomodel({userid,title,desc});
+        const createtodo=new todomodel({title,desc});
         return await createtodo.save();
        }catch(error){
          throw error;
