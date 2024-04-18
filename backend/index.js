@@ -7,6 +7,7 @@ const bodyparser=require("body-parser");
 const userRoute=require("./routes/userroutes");
 const path=require("path");
 const todoroute=require("./routes/todoroute");
+
 app.use(express.static(path.join(__dirname,'views')));
 
 
